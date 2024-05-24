@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step05_loop2.html</title>
+</head>
+
+<body>
+    <script>
+        let cnt = 0;
+        while (true) {
+            const isRun = confirm("계속 진행하겠습니까?");
+            if (!isRun) {
+                break; // 반복문 블럭 탈출
+            }
+            console.log(++cnt);
+        }
+    </script>
+</body>
+
+</html>

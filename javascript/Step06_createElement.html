@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step06_createElement.html</title>
+    <style>
+        .container {
+            width: 768;
+            /* 위아래 margin : 0     좌우 margin : auto (동일하게 부여됨) */
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>문서 요소를 필요한 시점에 만들어서 원하는 위치에 넣기</h1>
+        <input type="text" placeholder="할 일 입력" id="inputTodo">
+        <button id="addBtn">추가</button>
+        <ol>
+
+        </ol>
+        <script>
+            document.querySelector("#addBtn").addEventListener("click", () => {
+                // newList에 object타입이 담김
+                const newList = document.createElement("li");
+                newList.innerText = document.querySelector("#inputTodo").value;
+                document.querySelector("ol").append(newList);
+            });
+        </script>
+    </div>
+</body>
+
+</html>

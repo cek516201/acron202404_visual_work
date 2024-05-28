@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step06_createElement2.html</title>
+</head>
+
+<body>
+    <button id="addBtn">추가</button>
+    <button id="addBtn2">추가2</button>
+    <table>
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>주소</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        const data = { num: 1, name: "ㅁㅁㅁ", addr: "aaa" };
+        document.querySelector("#addBtn").addEventListener("click", () => {
+            const newTd1 = document.createElement("td");
+            newTd1.innerText = data.num;
+            const newTd2 = document.createElement("td");
+            newTd2.innerText = data.name;
+            const newTd3 = document.createElement("td");
+            newTd3.innerText = data.addr;
+
+            const newTr = document.createElement("tr");
+            newTr.append(newTd1);
+            newTr.append(newTd2);
+            newTr.append(newTd3);
+
+            document.querySelector("tbody").append(newTr);
+        });
+
+        document.querySelector("#addBtn2").addEventListener("click", () => {
+            const html = `
+            <tr>
+                <td>${data.num}</td>
+                <td>${data.name}</td>
+                <td>${data.addr}</td>
+            </tr>`;
+            document.querySelector("tbody").insertAdjacentHTML("beforeend", html);
+        });
+    </script>
+</body>
+
+</html>

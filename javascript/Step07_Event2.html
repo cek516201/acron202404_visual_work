@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step07_Event2.html</title>
+    <style>
+        .container {
+            display: flex;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            background-color: black;
+            font-weight: bold;
+            font-size: 20px;
+            color: white;
+
+            /* 글자를 가운데 정렬 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <script>
+        // const divs = document.querySelectorAll(".box");
+        // for (let i = 0; i < divs.length; i++) {
+        //     divs[i].addEventListener("mousemove", (e) => { // e는 발생한 event 정보를 담고 있는 object
+        //         // 이벤트가 발생한 요소의 참조값
+        //         const target = e.target;
+
+        //         // 마우스의 상대좌표
+        //         const x = e.offsetX;
+        //         const y = e.offsetY;
+
+        //         // 출력할 문자열 구성하기
+        //         const info = `x:${x}<br>y:${y}`;
+        //         target.innerHTML = info;
+        //     });
+        // }
+
+        document.querySelectorAll(".box").forEach((elem) => {
+            elem.addEventListener("mousemove", (e) => { // e는 발생한 event 정보를 담고 있는 object
+                e.target.innerHTML = `x:${e.offsetX}<br>y:${e.offsetY}`;
+            });
+        });
+
+        // document.querySelector(".box").addEventListener("mousemove", (e) => { // e는 발생한 event 정보를 담고 있는 object
+        //     // 이벤트가 발생한 요소의 참조값
+        //     const target = e.target;
+
+        //     // 마우스의 상대좌표
+        //     const x = e.offsetX;
+        //     const y = e.offsetY;
+
+        //     // 출력할 문자열 구성하기
+        //     const info = `x:${x}<br>y:${y}`;
+        //     target.innerHTML = info;
+        // });
+    </script>
+</body>
+
+</html>

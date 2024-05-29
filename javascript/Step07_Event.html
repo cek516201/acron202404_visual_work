@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step07_Event.html</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 500px;
+            border: 1px solid red;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box"></div>
+    </div>
+    <script>
+        document.querySelector(".box").addEventListener("mousemove", (e) => { // e는 발생한 event 정보를 담고 있는 object
+            // 이벤트가 발생한 요소의 참조값
+            const target = e.target;
+
+            // 마우스의 상대좌표
+            const x = e.offsetX;
+            const y = e.offsetY;
+
+            // 출력할 문자열 구성하기
+            const info = `x:${x}, y:${y}}`;
+            console.log(info);
+        });
+    </script>
+</body>
+
+</html>

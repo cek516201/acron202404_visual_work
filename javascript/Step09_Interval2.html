@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step09_Interval.html</title>
+</head>
+
+<body>
+    <h1>특정 시간을 주기로 어떤 작업을 반복하기</h1>
+    <button id="startBtn">시작</button>
+    <button id="cancelBtn">취소</button>
+    <p id="one"></p>
+    <script>
+        // 전역변수 접근을 막기위해서 (function () {}) ();
+        (function () {
+            let isRunning = false;
+            let intervalID;
+            document.querySelector("#startBtn").addEventListener("click", () => {
+                if (!isRunning) {
+                    let count = 0;
+                    intervalID = setInterval(() => {
+                        document.querySelector("#one").innerText = ++count;
+                    }, 10);
+                    isRunning = true;
+                }
+            });
+
+            document.querySelector("#cancelBtn").addEventListener("click", () => {
+                clearInterval(intervalID);
+                document.querySelector("#one").innerText = 0;
+                isRunning = false;
+            });
+        })();
+    </script>
+</body>
+
+</html>

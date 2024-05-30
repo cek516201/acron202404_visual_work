@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step08_array.html</title>
+</head>
+
+<body>
+    <h1>배열 객체의 다양한 함수 활용</h1>
+    <script>
+        const names = ["ㅁㅁㅁ", "ㄴㄴㄴ", "ㅇㅇㅇ"];
+        for (let i = 0; i < names.length; i++) {
+            names[i] += "님";
+        }
+
+        const original = ["ㅁㅁㅁ", "ㄴㄴㄴ", "ㅇㅇㅇ"];
+        const newArray = original.map((elem) => elem + "님");
+
+        const nums = [1, 5, 8, -10, -20, 10, 30]; //                       제곱
+        const results = nums.filter((elem) => elem >= 0).map((elem) => elem ** 2);
+    </script>
+</body>
+
+</html>

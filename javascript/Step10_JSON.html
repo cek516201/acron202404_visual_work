@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step10_JSON.html</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>JSON 문자열 사용해보기</h1>
+        <p>
+            <strong>Java Script Object Notation</strong> (자바스크립트 객체 표기법)
+            을 따르는 문자열을 JSON 문자열이라고 한다
+        </p>
+    </div>
+    <script>
+        // object type
+        const data1 = { num: 1, name: "김구라" };
+
+        // string type
+        const data2 = `{ "num": 2, "name":"해골" }`;
+        const result2 = JSON.parse(data2);
+
+        const data3 = [10, 20, 30];
+        const data4 = `[10, 20, 30]`;
+        const result4 = JSON.parse(data4);
+
+        // key값은 반드시 ""
+        // value로 작성할 수 있는 형식은
+        // 숫자, 문자(반드시 ""), bool, null, 배열, object
+        const info = `{
+            "num" : 1,
+            "name" : "김구라",
+            "isMan" : true,
+            "addr" : null,
+            "friends" : ["ㅁㅁㅁ", "ㄴㄴㄴ", "ㅇㅇㅇ"],
+            "company" : {"name" : "aaa", "addr" : "sss"}
+        }`;
+
+        const result = JSON.parse(info);
+        const num = result.num;
+        const name = result.name;
+        const isMan = result.isMan;
+        const addr = result.addr;
+        const friends = result.friends;
+        const company = result.company;
+        console.log(result);
+    </script>
+</body>
+
+</html>

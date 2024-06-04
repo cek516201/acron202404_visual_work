@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step01_localStorage2.html</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>영어사전 만들기</h1>
+        <input type="text" id="word" placeholder="단어 입력">
+        <input type="text" id="mean" placeholder="뜻 입력">
+        <button id="saveBtn">저장</button>
+        <button id="findBtn">뜻 찾기</button>
+    </div>
+    <script>
+        // function $(sel) { return document.querySelector(sel); }
+        // $("#saveBtn").addEventListener("click", () => { });
+        document.querySelector("#saveBtn").addEventListener("click", () => {
+            const word = document.querySelector("#word").value.trim();
+            const mean = document.querySelector("#mean").value.trim();
+            if (word == "" || mean == "")
+                return;
+
+            localStorage[word] = mean;
+            document.querySelector("#word").value = "";
+            document.querySelector("#mean").value = "";
+        });
+
+        document.querySelector("#findBtn").addEventListener("click", () => {
+            const word = document.querySelector("#word").value.trim();
+            if (word == "")
+                return;
+
+            if (localStorage[word] == undefined) {
+                document.querySelector("#mean").value = "저장된 단어가 없습니다";
+            } else {
+                document.querySelector("#mean").value = localStorage[word];
+            }
+        });
+    </script>
+</body>
+
+</html>

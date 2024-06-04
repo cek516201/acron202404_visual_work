@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step01_localStorage.html</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>local storage</h1>
+        <p>웹 브라우저에 문자열을 영구 저장할 수 있는 local storage 사용해보기</p>
+        <input type="text" id="inputName" placeholder="이름을 입력하세요">
+        <button id="saveBtn">저장</button>
+        <button id="clearBtn">Clear</button>
+        <p id="name"></p>
+    </div>
+    <script>
+        if (localStorage.savedName != undefined) {
+            document.querySelector("#name").innerText = localStorage.savedName + "님 반갑습니다.";
+        } else {
+            document.querySelector("#name").innerText = "저장된 이름이 없습니다."
+        }
+
+        document.querySelector("#saveBtn").addEventListener("click", () => {
+            // 문자열만 저장
+            // localStorage.savedName = document.querySelector("#inputName").value;
+
+            // object의 특정 key 값을 대괄호 안에 문자열로 지칭할수도 있다
+            localStorage["savedName"] = document.querySelector("#inputName").value; // 위와 동작이 같다
+            alert("저장");
+        });
+
+        document.querySelector("#clearBtn").addEventListener("click", () => {
+            // delete localStorage.savedName;
+            delete localStorage["savedName"]; // 위와 동작이 같다
+            alert("삭제");
+        });
+    </script>
+</body>
+
+</html>
